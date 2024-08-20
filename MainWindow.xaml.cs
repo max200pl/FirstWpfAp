@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace FirstWpfAp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    /** public partial class MainWindow : Window
     {
         public List<Person> people = new List<Person>();
         public MainWindow()
@@ -49,6 +50,36 @@ namespace FirstWpfAp
             {
                 return $"{ FirstName} {LastName}";
             }
+        }
+    }
+    **/
+
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            foreach (UIElement el in Calculator.Children)
+            {
+                if (el is Button)
+                {
+                    ((Button)el).Click += Button_Click;
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string str = (string)((Button)e.OriginalSource).Content;
+            if (str == "AC")
+                textLable.Text = "";
+            else if(str == "=")
+            {
+                string value = new DataTable().Compute(textLable.Text, null).ToString();
+                textLable.Text = value;
+            }
+            else
+            textLable.Text += str;
         }
     }
 }
