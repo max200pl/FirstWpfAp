@@ -1,0 +1,61 @@
+﻿<Window x:Class="FirstWpfAp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstWpfAp"
+        mc:Ignorable="d"
+        FontSize="18"
+        Title="Our WPF Demo" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="1" 
+            FontSize="36"
+            FontFamily="Bernard MT Condensed"
+            Grid.ColumnSpan="3"
+         >
+            WPF Start
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" FontWeight="Bold" Text="First Name"/>
+        <TextBox x:Name="firstName"  Grid.Column="2" Grid.Row="2" Width="100" Margin="20,0,0,0"/>
+
+        <ComboBox x:Name="myComboBox" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="10">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <Button x:Name="submitButton" Content="Run me" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="10" Click="submitButton_Click"/>
+
+
+        <Image Grid.Row="1" Grid.Column="4" Grid.RowSpan="6" Source="pack://application:,,,/References/Images/analyzeDisk.png"/>
+        <StackPanel Grid.Row="1" Grid.Column="4" Grid.RowSpan="6"  Orientation="Horizontal">
+
+
+        </StackPanel>
+    </Grid>
+</Window>
